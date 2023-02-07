@@ -1,0 +1,43 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  width: 33.33%;
+  padding: 1em;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+}
+
+.product h3 {
+  margin-top: 1em;
+}
+
+.product p {
+  margin-top: 0.5em;
+}
+
+.product .price {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.product button {
+  display: block;
+  margin: 1em auto;
+  padding: 0.5em 1em;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.product button:hover {
+  background-color: lightgreen;
+}
