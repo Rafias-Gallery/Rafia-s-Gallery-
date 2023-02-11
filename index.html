@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rafia's Gallery</title></title>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" href="app1.css"</>
+    <link rel="stylesheet" href="app2.css">
+<script>
+  let cart = []; 
+   function addToCart(product) {
+    cart.push(product);
+    updateCartDisplay();
+  }
+
+   function updateCartDisplay() {
+    const cartDisplay = document.querySelector("#cart-display");
+    let cartDisplayHTML = "";
+
+    for (const product of cart) {
+      cartDisplayHTML += `
+        <div class="cart-product">
+          <img src="${product.img}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p class="price">${product.price}</p>
+        </div>
+      `;
+    }
+
+    cartDisplay.innerHTML = cartDisplayHTML;
+  }
+  
+</script>
+
+<script>
+let cartCount = 0;
+
+function addToCart(product) {
+  cartCount++;
+  document.querySelector("#cart-badge").textContent = cartCount;
+}
+
+function removeFromCart(product) {
+  cartCount--;
+  document.querySelector("#cart-badge").textContent = cartCount;
+}
+</script>
+<script>
+      function showSection(sectionId) {
+        const sections = document.querySelectorAll("main > section");
+        for (const section of sections) {
+          if (section.id === sectionId) {
+            section.style.display = "block";
+          } else {
+            section.style.display = "none";
+          }
+        }
+      }
+    </script>
+    <style>
+  section {
+    display: none;
+  }
+
+  #home {
+    display: block;
+  }
+</style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Rafia's Gallery</h1>
+      <br>
+      <nav>
+        <ul>
+           <li><a href="#" onclick="showSection('home');">Home</a></li>
+          <li><a href="#" onclick="showSection('products');">Products</a></li>
+          <li><a href="#" onclick="showSection('about');">About</a></li>
+          <li><a href="#" onclick="showSection('contact');">Contact</a></li>
+           
+            <li class="cart">
+  <a href="#" onclick="showSection('cart');">
+    <i class="fa fa-shopping-cart"></i> Cart
+    <span class="badge" id="cart-badge">0</span>
+  </a>
+</li>
+        </ul>
+      </nav>
+      <div id="cart-display"></div>
+    </header>
+    <main>
+      <section id="home">
+
+        <h2>Welcome To Our Website</h2>
+        <p> Here You Can Purchase All Hand Made Product </p>
+      </section>
+      <section id="products">
+        <h2>Our Products</h2>
+        <p>Here's what we're selling:</p>
+              <div class="products">
+        <div class="product">
+          <img src="2.jpeg" alt="Product 1">
+          <h3>Product 1</h3>
+          <p> <b>Name</b> : Natural Craft Hair Oil
+         <b>Capacity</b>: 200 ml &ensp; &ensp;&ensp;  &ensp; &ensp; &ensp;   &ensp; </p>
+          <p class="price">৳২২০</p>
+          <button onclick="addToCart({name: 'Product 1', img: 'product1.jpg', price: '৳২২০'});">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="product2.jpg" alt="Coming">
+          <h3>Coming</h3>
+          <p>Coming</p>
+          <p class="price">N/A</p>
+          <button onclick="addToCart({name: 'Product B', img: 'product2.jpg', price: '$20.00'});">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="product3.jpg" alt="Coming">
+          <h3>Coming</h3>
+          <p>Coming</p>
+          <p class="price">N/A</p>
+          <button onclick="addToCart({name: 'Product A', img: 'product3.jpg', price: '$30.00'});">Add to Cart</button>
+        </div>
+      </div>
+      </section>
+      <section id="about" style="display:none;">
+        <h2>About Us</h2>
+        <p>Learn more about who we are and what we do:</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel ipsum vel velit commodo finibus eu eget dui. Nullam placerat, nisi id vestibulum viverra, lorem ipsum placerat diam, at bibendum sapien odio eu est.</p>
+      </section>
+      <section id="cart" style="display:none;">
+  <h2>Shopping Cart</h2>
+  <div id="cart-container"></div>
+  <button id="checkout-button">Checkout</button> </section>
+  <section id="cart">
+  <h2>Shopping Cart</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody id="cart-items">
+    </tbody>
+  </table>
+  <p id="total"></p>
+  <form action="#" id="checkout-form">
+    <h3>Shipping Information</h3>
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <label for="address">Address:</label>
+    <input type="text" id="address" required>
+    <button type="submit">Checkout</button>
+  </form>
+</section>
+<section id="home" >
+<div class="notice">
+  <p class="text-animation">Important Notice: Our store will be closed for maintenance from 1st February-1st March. We apologize for the inconvenience.</p>
+</div>
+</section>
+  <section id="contact" style="display:none;">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us:</p>
+        <form action="#">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message"></textarea>
+          <input type="submit" value="Send">
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright &copy; Rafia's Gallery </p>
+    </footer>
+  </body>
+</html>
